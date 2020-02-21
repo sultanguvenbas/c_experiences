@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<stdbool.h>
+
+bool primenum(int num){
+    int counter=2;
+    if (counter==num){
+        return true;
+    }
+    if(num % counter== 0){
+        return false;
+    }else{
+        counter++;
+
+    }
+
+}
+
+int main (){
+
+    int number;
+    printf("Enter a number: ");
+    scanf("%d", &number);
+    if(primenum(number) == true){
+        printf("This number is prime :%d", number);
+    }else{
+        printf("This number is not prime:%d",number);
+    }
+    
+
+
+    return 0;
+}
