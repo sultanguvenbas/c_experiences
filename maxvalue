@@ -1,0 +1,23 @@
+#include<stdio.h>
+
+int maxvalue(int *a,int size){    // int a[] yerine *a yazdıgımda arrayı pointera atamış olduk 
+    int max=a[0];                // yani pointerları main içinde atamama gerek int (*p=array; yerine direk atama yaptık)
+
+    int i; // i'yi dışarıda tanımlamamız lazım
+    for(i=1; i<size; i++) {
+        if (a[i] > max){
+            max=a[i];
+
+        }
+    }return max;
+
+
+}
+
+int main(){
+
+    int array[5]={4,1,45,26,16};
+    int max=maxvalue(array,5);
+    printf("max value is %d ",max);
+
+}
