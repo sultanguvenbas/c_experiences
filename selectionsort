@@ -1,0 +1,36 @@
+#include<stdio.h>
+#define MAX 50
+// 3 12 1 45 36
+void selectsort(int arr[],int size){
+    int i,j;
+    int minindex;
+    for(i=0; i<size; i++){
+        minindex=i;
+        for(j=i+1; j<size; j++){
+            if(arr[minindex] > arr[j]){
+                minindex=j;
+            }
+        }
+        int temp = arr[i]; //burda arr[i] yazıyoruz çünkü if'in içinde minindexi j yaptık
+        arr[i]=arr[minindex];
+        arr[minindex]=temp;
+    }
+}
+
+int main(){ 
+
+    int array[MAX],size,i;
+    printf("Please enter size number: ");
+    scanf("%d",&size);
+    
+    for(i=0; i<size; i++){
+        scanf("%d",&array[i]);
+    }
+    selectsort(array,size);
+    for(i=0; i<size; i++){
+        printf("%d ",array[i]);
+    }
+
+
+    return 0;
+}
