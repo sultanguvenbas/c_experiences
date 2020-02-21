@@ -1,0 +1,21 @@
+#include<stdio.h>
+#include<string.h>
+
+int findsize(char *p){
+    static int size=0;
+    int i;
+
+    for(i=0; p[i]!='\0'; i++){
+        if(p[i]!='\0'){   // buraya direk size++ yazabiliriz if kullanmak yerine
+            size++;
+        }
+    }return size;
+}
+
+int main(){
+
+    char isim[]="sultan";
+    printf("%s\n",isim);
+    printf("Your name size is %d\n ",findsize(isim));
+    printf("%d",strlen(isim));
+}
