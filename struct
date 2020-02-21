@@ -1,0 +1,19 @@
+#include<stdio.h>
+
+struct Student{
+    char name[15];
+    char lastname[15];
+    int age;
+    int number;
+};
+
+
+int main(){
+
+   struct Student sultan = {"Fatma","Akıllı",23,134};   // burda struct student dan bir nesne olusturduk
+                                                     
+   printf("%s %s %d %d ",sultan.name,sultan.lastname,sultan.age,sultan.number);
+
+   return 0;
+    
+}
