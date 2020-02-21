@@ -1,0 +1,36 @@
+#include<stdio.h>
+
+int gcdnum(int n1,int n2){
+    static int count=0;
+    if(count==0)
+       count=n1;
+
+    if(n1%count==0 && n2%count==0)
+    return count;
+
+    count--;
+    return gcdnum(n1,n2);
+
+}
+int gcdnum2(int n1,int n2){
+    if(n1==n2)
+        return n1;
+    if(n1>n2){
+        gcdnum2(n1-n2,n2);
+    }else{
+        gcdnum2(n1,n2-n1);
+    }     
+}
+
+int main (){
+    int num1;
+    int num2;
+
+    printf("Please two number: ");
+    scanf("%d %d",&num1, &num2);
+    printf("Your number gcd is : %d ",gcdnum2(num1,num2));
+
+
+    
+    return 0;
+}
