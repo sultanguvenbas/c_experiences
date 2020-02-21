@@ -1,0 +1,35 @@
+#include<stdio.h>
+#include<string.h>
+
+struct Address{
+    char mahalle[15];
+    char cadde[15];
+    char sokak[15];
+};
+
+struct Student{
+    char name[15];
+    char lastname[15];
+    int age;
+    int number;              // yani bir yapının içinde baska bir yapının nesensini kullandık
+    struct Address adres;    // öğrencinin adresini almak için diğerinden bir nesne oluşturduk
+
+};
+
+int main (){
+    struct Student ogrenci1;
+   
+    //ogrenci.name="Fatma";  charda  boyle bir atama yapamayız 
+    strcpy(ogrenci1.name,"Fatma");  // böyle yazıcam
+    strcpy(ogrenci1.lastname,"Akıllı");
+    ogrenci1.age = 23;   //intlerde direk olarak atama yapabilirz
+    ogrenci1.number = 134;
+
+    strcpy(ogrenci1.adres.mahalle,"Mamak");   //adres de bir struct oldugu için onun altındaki değere ulasıyoruz
+    strcpy(ogrenci1.adres.cadde,"7.cadde");
+    strcpy(ogrenci1.adres.sokak,"1032 sokak");
+
+    printf("%s %s %d %d %s %s %s ",ogrenci1.name,ogrenci1.lastname,ogrenci1.age,ogrenci1.number,ogrenci1.adres.mahalle,ogrenci1.adres.cadde,ogrenci1.adres.sokak);
+
+    return 0;
+}
