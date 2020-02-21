@@ -1,0 +1,29 @@
+#include <stdio.h>
+int drDigits2(int num)
+{
+    num=num / 10;
+    return num==0 ? 1 : 1 + drDigits2(num);
+}
+int drDigits(int num)
+{
+    static int size = 0;
+    if (num > 0)
+    {
+        size = size + 1;
+        drDigits(num / 10);
+    }
+    else
+    {
+        return size;
+    }
+}
+
+int main()
+{
+    int number;
+    printf("Enter a positive integer number: ");
+    scanf("%d", &number);
+    printf("Total digits in number number is: %d", drDigits2(number));
+
+    return 0;
+}
