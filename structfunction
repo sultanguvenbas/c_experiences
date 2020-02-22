@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<string.h>
+
+struct Student{
+    char name[15];
+    char lastname[15];
+    int number;
+
+};
+
+void show(struct Student a){
+
+    printf("Student information is %s %s %d ",a.name,a.lastname,a.number);
+}
+
+struct Student get_information() {
+
+    struct Student new_information;
+    printf("Please enter your information : ");
+    scanf("%s %s %d ",&new_information.name,&new_information.lastname,&new_information.number);
+
+    return new_information;
+}
+
+int main(){
+    struct Student array=get_information();
+    show(array);
+    
+
+    return 0;
+}
