@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<string.h>
+
+struct Student{
+    char name[15];
+    char lastname[15];
+    int number;
+
+};
+int main(){
+
+    struct Student student;
+    struct Student *tut;        //like  int a =5; int *p=&a;
+
+    strcpy(student.name,"Sultan");
+    strcpy(student.lastname,"Guvenbas");
+    student.number=123;
+
+    tut =&student;
+
+    printf("%s %s %d\n",student.name,student.lastname,student.number);
+    printf("%s %s %d",tut->name,tut->lastname,tut->number);     //*tut.name ==tut->name
+
+
+
+    return 0;
+}
