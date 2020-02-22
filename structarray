@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<string.h>
+
+struct Student{
+    char name[15];
+    char lastname[15];
+    int number;
+
+};
+int main(){
+    
+    struct Student array[3];
+    
+    int i;
+    for(i=0; i<3; i++){
+        printf("%d. please enter your information ",i+1);
+        scanf(" %s %s %d\n",&array[i].name,&array[i].lastname,&array[i].number);
+    } 
+
+    for(i=0; i<3; i++){
+        printf("%d. informations is %s %s %d\n",i+1,array[i].name,array[i].lastname,array[i].number);
+    } 
+
+
+    return 0;
+}
