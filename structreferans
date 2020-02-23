@@ -1,0 +1,34 @@
+#include<stdio.h>
+#include<string.h>
+
+struct Student{
+    char name[15];
+    char lastname[15];
+    int number;
+
+};
+
+struct Student *get_information(struct Student *p){
+
+    strcpy(p->name,"Ahmet");
+    strcpy(p->lastname,"Veli");
+    p->number=147;
+
+    return p;
+}
+
+void show(struct Student *p){
+
+    printf("Student's information\nname : %s\nlastname : %s\nnumber : %d\n\n",p->name,p->lastname,p->number);
+}
+
+int main(){
+   
+    struct Student student={"Sultan","Guvenbas",123};
+    show(&student); //show fonksiyomuz pointer ile işlem yaptıgı için bizim parametreyi adresi ile göndermeliyiz
+    get_information(&student);
+
+    printf("New student's information\nname : %s\nlastname : %s\nnumber : %d",student.name,student.lastname,student.number);
+
+    return 0;
+}
