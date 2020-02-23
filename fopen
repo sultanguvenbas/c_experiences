@@ -1,0 +1,14 @@
+#include<stdio.h>
+
+int main(){
+
+    FILE *file = fopen("first.txt","w"); //"w" eğer dosya yok ise dosya olusturur var ise dosyayı siler ve yeniden bos bir dosya olusturur
+                                   
+    if(file == NULL){    //dosya olusturulurken herhangi bir sorun olmus ise
+        printf("Did not create the file");
+    }else{
+        printf("File created!");
+    }
+
+    return 0;
+}
