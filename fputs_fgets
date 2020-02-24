@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<string.h>
+
+int main(){
+
+    FILE *file = fopen("first.txt","a"); //append kısaltılmıs halidir olan dosyaya direk ekle demektir 
+    char text[256];                     //aynı zaman da dosya yok ise dosya oluşturur
+
+    if(file == NULL){
+        printf("Did not create the file!");
+    }else{
+        printf("Please write whatever you want : ");
+        fgets(text,256,stdin); // scanf kullanmadık çünkü scanf bosluk gördüğü an program biter metin yazamayız
+        fputs(text,file);      //stdin standart input anlamına gelir
+                               //fputs string yazıyor
+        fclose(file);
+    }
+
+
+
+    return 0;
+}
