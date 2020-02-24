@@ -1,0 +1,24 @@
+#include<stdio.h>
+#include<string.h>
+
+int main(){
+
+    char veri[25]="Sultan";
+    int size = strlen(veri);
+    int i;
+
+    FILE *file = fopen("first.txt","w"); //"w" eğer dosya yok ise dosya olusturur var ise dosyayı siler ve yeniden bos bir dosya olusturur
+
+    if(file == NULL){    //dosya olusturulurken herhangi bir sorun olmus ise ya da dosya boş mu diye kontrol
+        printf("Did not create the file");
+    }else{
+        for(i=0; i<size; i++){
+            fputc(veri[i],file);
+            printf("Yazilan karakter : %c\n",veri[i]);
+        }
+        fclose(file);
+       
+    }
+
+    return 0;
+}
