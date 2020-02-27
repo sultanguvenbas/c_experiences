@@ -1,0 +1,13 @@
+#include<stdio.h>
+
+int main(){
+    int city = 2;
+    int week = 7;
+    int i,j;
+    int temperature[city][week];
+
+    for(i=0; i<city; i++){
+        printf("city %d , day %d ",i+1,j+1);
+        scanf("%d",&temperature[i][j]);
+    }
+}
