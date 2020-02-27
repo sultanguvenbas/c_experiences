@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <math.h>
+FILE *file;
+
+float arb_func(float x)
+{
+    return x * log10(x) - 1.2;
+}
+
+void rf(float *x, float x0, float x1, float fx0, float fx1, int *itr)
+{
+
+    *x = ((x0 * fx1) - (x1 * fx0)) / (fx1 - fx0);
+    *itr=*itr+1;
+    printf("iteration %d: %.5f\n", *itr, *x);
+    fprintf(file, "iteration %d : %.5f\n", *itr, *x);
+}
+
+int main()
+{
+    file = fopen("rf.txt", "w");
+    int itr;
+    float x, x0, x1, fx0, fx1, x_curr, x_next, error;
+    int maxitr;
+
+    printf("Enter interval values [x0,x1], allowed error and number of iterations :");
+    scanf("%f %f %f %d", &x0, &x1, &error, &maxitr);
+
+    rf(&x_curr, x0, x1, arb_func(x0), arb_func(x1), &itr);
+
+    do
+    {
+
+        if (arb_func(x0) * arb_func(x_curr) < 0)
+        {
+            x1 = x_curr;
+        }
+        else
+        {
+            x0 = x_curr;
+        }
+
+        rf(&x_next, x0, x1, arb_func(x0), arb_func(x1), &itr);
+        if (fabs(x_next - x_curr) < error)
+        {
+            printf("After %d iterations,root is %.5f ", itr, x_curr);
+            fprintf(file, "After %d iterations, root is %.5f\n", itr, x_curr);
+            return 0;
+        }
+        else
+        {
+            x_curr=x_next;
+        }
+    } while (itr < maxitr);
+    printf("Solution does not converge or iteration not sufficient: ");
+    fclose(file);
+    return 1;
+}
