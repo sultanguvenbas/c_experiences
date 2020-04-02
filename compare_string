@@ -1,0 +1,40 @@
+#include<string.h>
+#include<ctype.h>
+#include <stdio.h>
+
+#define STRSIZ 80
+
+char *string_toupper(char *str){
+    int i;
+
+    for(i=0; i<strlen(str); i++){
+        if(islower(str[i])){
+            str[i]=toupper(str[i]);
+        }
+    }return str; 
+}
+
+
+
+char *string_greater(const char *str1,const char *str2){
+    char s1[STRSIZ],s2[STRSIZ];
+
+    strcpy(s1,str1);
+    strcpy(s2,str2);
+
+    return(strcmp(string_toupper(s1),string_toupper(s2)) > 0);
+}
+
+
+
+int main(void){
+    char arr1[STRSIZ]="Zonguldak";
+    char arr2[STRSIZ]="ankara";
+
+    int result1=strcmp(arr1,arr2);
+    int result2=string_greater(arr1,arr2);
+
+    printf("%d %d",result1,result2);
+
+    return 0;
+}
